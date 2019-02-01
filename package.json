@@ -1,0 +1,39 @@
+{
+    "scripts": {
+        "preinstall": "which link-module-alias && link-module-alias clean || echo",
+        "postinstall": "link-module-alias"
+    },
+    "_moduleAliases": {
+        "@utils": "./app/utils"
+    },
+    "ava": {
+        "require": [
+            "esm"
+        ],
+        "sources": [
+            "./index.js",
+            "./app/**/*.js"
+        ],
+        "files": [
+            "test/specs/**/*.spec.js"
+        ],
+        "rules": {
+            "ava/no-todo-test": "off"
+        },
+        "babel": false
+    },
+    "nyc": {
+        "require": [
+            "esm"
+        ]
+    },
+    "dependencies": {
+        "ava": "^1.2.0",
+        "express": "^4.16.4",
+        "link-module-alias": "^1.1.6",
+        "nyc": "^13.1.0",
+        "path-exists": "^3.0.0",
+        "sinon": "^7.2.3",
+        "sinon-express-mock": "^2.1.0"
+    }
+}
